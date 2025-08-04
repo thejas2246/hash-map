@@ -1,7 +1,8 @@
 class HashMap {
   constructor() {
-    this.loadFactor;
-    this.capacity;
+    this.loadFactor = 0.75;
+    this.capacity = 0;
+    this.bucketContainer = [];
   }
 
   hash(key) {
