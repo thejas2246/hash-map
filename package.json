@@ -1,0 +1,21 @@
+{
+  "name": "hash-map",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thejas2246/hash-map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thejas2246/hash-map/issues"
+  },
+  "homepage": "https://github.com/thejas2246/hash-map#readme"
+}

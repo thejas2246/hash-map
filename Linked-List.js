@@ -1,4 +1,4 @@
-import { listNode } from "./list-node";
+import { listNode } from "./list-node.js";
 
 export  class LinkedList{
     constructor(){
@@ -16,4 +16,24 @@ export  class LinkedList{
         }
         temp.nextNode = node;
     }
+    display(){
+        if(!this.head){
+            return null;
+        }
+
+        let temp = this.head;
+        while(temp){
+            console.log(temp.value,temp.key);
+            temp = temp.nextNode
+        }
+    }
 }
+
+let te = new LinkedList();
+
+te.append("thejas","valu");
+te.append("thjas","value");
+te.append("thejs","val");
+te.append("theja","value");
+
+te.display();
