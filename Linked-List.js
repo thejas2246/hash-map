@@ -17,23 +17,43 @@ export  class LinkedList{
         temp.nextNode = node;
     }
     display(){
+        console.log(this.head)
         if(!this.head){
             return null;
         }
 
         let temp = this.head;
         while(temp){
-            console.log(temp.value,temp.key);
+            console.log([temp.value,temp.key]);
             temp = temp.nextNode
         }
     }
+    pop(){
+        if(!this.head){
+            return
+        }
+        if(this.head.nextNode===null){
+            this.head = null;
+            return 
+        }
+        let temp = this.head;
+        while(temp.nextNode.nextNode){
+            temp = temp.nextNode;
+        }
+            temp.nextNode = null;
+    }
 }
+// let le = new LinkedList();
+// le.append('key','h')
+// le.append('key','a')
+// le.append('key','b')
+// le.append('key','c')
+// le.append('key','d')
+// le.pop();
+// le.pop();
+// le.pop();
+// le.pop();
+// le.pop();
 
-let te = new LinkedList();
 
-te.append("thejas","valu");
-te.append("thjas","value");
-te.append("thejs","val");
-te.append("theja","value");
-
-te.display();
+// le.display()
