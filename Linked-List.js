@@ -11,8 +11,17 @@ export  class LinkedList{
             return ;
         }
         let temp = this.head;
+        if(temp.key === key){
+            temp.value = value;
+            return ;
+        }
         while(temp.nextNode){
+            if(temp.key === key ){
+                temp.value = value;
+                return;
+            }
             temp = temp.nextNode
+
         }
         temp.nextNode = node;
     }
@@ -44,16 +53,11 @@ export  class LinkedList{
     }
 }
 // let le = new LinkedList();
-// le.append('key','h')
-// le.append('key','a')
-// le.append('key','b')
-// le.append('key','c')
-// le.append('key','d')
-// le.pop();
-// le.pop();
-// le.pop();
-// le.pop();
-// le.pop();
+// le.append("thejas","a");
+// le.append("manu","jk");
+// le.append("jake","sinu");
+// le.append("manu","pk")
+
 
 
 // le.display()
