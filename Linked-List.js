@@ -23,19 +23,24 @@ export  class LinkedList{
             temp = temp.nextNode
 
         }
+        if(temp.key === key){
+            temp.value = value;
+            return 
+        }
         temp.nextNode = node;
     }
     display(){
-        console.log(this.head)
         if(!this.head){
             return null;
         }
 
         let temp = this.head;
+        let disp = ''
         while(temp){
-            console.log([temp.value,temp.key]);
+            disp += `[${temp.key},${temp.value}]->` 
             temp = temp.nextNode
         }
+        console.log(disp)
     }
     pop(){
         if(!this.head){
