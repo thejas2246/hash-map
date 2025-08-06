@@ -54,6 +54,26 @@ class HashMap {
     this.bucketContainer = [];
     this.currentSize = 0
   }
+  keys(){
+    let keyArray = []
+    for(let item of this.bucketContainer){
+      if(item){
+        let arr = item.getKeys();
+        keyArray = keyArray.concat(arr);
+      }
+    }
+    return keyArray
+  }
+  values(){
+    let keyArray = []
+    for(let item of this.bucketContainer){
+      if(item){
+        let arr = item.getValues();
+        keyArray = keyArray.concat(arr);
+      }
+    }
+    return keyArray
+  }
 }
 
 
@@ -80,7 +100,8 @@ test.set("mano",34)
 
 let val = test.get("mani")
 console.log(val)
-
+console.log(test.keys());
+console.log(test.values())
 test.length();
 
 // test.set("sita",50)

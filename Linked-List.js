@@ -74,6 +74,33 @@ export  class LinkedList{
         return null
 
     }
+    getKeys(){
+        let arr = [];
+        if(!this.head){
+            return [];
+        }
+
+        let temp = this.head;
+        while(temp){
+            arr.push(temp.key);
+            temp = temp.nextNode;
+        }
+        return arr;
+    }
+
+    getValues(){
+        let arr = [];
+         if(!this.head){
+            return [];
+        }
+
+        let temp = this.head;
+        while(temp){
+            arr.push(temp.value);
+            temp = temp.nextNode;
+        }
+        return arr;
+    }
 }
 // let le = new LinkedList();
 // le.append("thejas","a");
