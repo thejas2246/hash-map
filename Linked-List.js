@@ -25,6 +25,8 @@ export  class LinkedList{
         }
         if(temp.key === key){
             temp.value = value;
+                console.log('ond')
+
             return 1
         }
         temp.nextNode = node;
@@ -97,6 +99,21 @@ export  class LinkedList{
         let temp = this.head;
         while(temp){
             arr.push(temp.value);
+            temp = temp.nextNode;
+        }
+        return arr;
+    }
+
+    getKeyValues(){
+         let arr = [];
+         if(!this.head){
+            return [];
+        }
+
+        let temp = this.head;
+        while(temp){
+            let newArr = [temp.key,temp.value]
+            arr.push(newArr);
             temp = temp.nextNode;
         }
         return arr;

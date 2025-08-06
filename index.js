@@ -27,14 +27,19 @@ class HashMap {
     if(!this.bucketContainer[hashCode]){
       let list = new LinkedList();
       let count = list.append(key,value)
-      if(count===0){
+      if(count=== 0){
         this.currentSize++;
       }
       this.bucketContainer[hashCode] = list;
+      return
     }
     let count = this.bucketContainer[hashCode].append(key,value);
     if(count === 0){
       this.currentSize++
+
+    }
+    if(this.currentSize > this.loadFactor * this.capacity ){
+      this.increaeSize();
     }
   }
 
@@ -74,39 +79,62 @@ class HashMap {
     }
     return keyArray
   }
+    entries(){
+    let keyArray = []
+    for(let item of this.bucketContainer){
+      if(item){
+        let arr = item.getKeyValues();
+        keyArray = keyArray.concat(arr);
+      }
+    }
+    return keyArray
+  }
+
+increaeSize(){
+  let newArray = this.bucketContainer;
+  this.capacity *= 2
+  this.currentSize = 0;
+  this.bucketContainer = [];
+  for(let item of newArray){
+    if(item){
+    let arr = item.getKeyValues();
+    arr.forEach(element => {
+      this.set(element[0],element[1]);
+    });
+  }
+
+  }
+}
+
+display(){
+for(let item of this.bucketContainer){
+  if(item){
+    item.display();
+  }
+}
+}
+
 }
 
 
 let test = new HashMap();
 
 
-test.set("Rama",1)
-test.set("jina",2)
-test.set("sita",3)
-test.set("thejas",5)
-test.set("kina",5)
-test.set("kira",5)
-test.set("sina",5)
-test.set("mana",5)
-test.set("sonu",5)
-test.set("mena",5)
-test.set("albin",5)
-test.set("joan",5)
-test.set("mani",25)
-test.set("joan",29)
-test.set("mani",900)
-test.set("mano",34)
-test.set("mano",34)
+ test.set('apple', 'red')
+ test.set('banana', 'yellow')
+ test.set('carrot', 'orange')
+ test.set('dog', 'brown')
+ test.set('elephant', 'gray')
+ test.set('frog', 'green')
+ test.set('grape', 'purple')
+ test.set('hat', 'black')
+ test.set('ice cream', 'white')
+ test.set('jacket', 'blue')
+ test.set('kite', 'pink')
+  test.set('lion', 'golden')
+   test.set('moon', 'silver')
 
-let val = test.get("mani")
-console.log(val)
-console.log(test.keys());
-console.log(test.values())
-test.length();
 
-// test.set("sita",50)
-// test.set("sonu",50)
-// test.display();
-// test.set("sonu",23)
-
-// test.display()
+ 
+test.display();
+console.log(test.capacity,test.currentSize)
