@@ -26,36 +26,62 @@ class HashMap {
     }
     if(!this.bucketContainer[hashCode]){
       let list = new LinkedList();
-      list.append(key,value)
+      let count = list.append(key,value)
+      if(count===0){
+        this.currentSize++;
+      }
       this.bucketContainer[hashCode] = list;
     }
-    this.bucketContainer[hashCode].append(key,value);
-    this.currentSize = this.currentSize++;
+    let count = this.bucketContainer[hashCode].append(key,value);
+    if(count === 0){
+      this.currentSize++
+    }
+  }
+
+  get(key){
+    let hashCode = this.hash(key);
+    if(this.bucketContainer[hashCode]){
+      let value = this.bucketContainer[hashCode].retrive(key);
+      return value
+    }
+    return null
+  }
+
+  length(){
+    console.log(this.currentSize)
+  }
+  clear(){
+    this.bucketContainer = [];
+    this.currentSize = 0
   }
 }
 
 
-// let test = new HashMap();
+let test = new HashMap();
 
 
-// test.set("Rama",1)
-// test.set("jina",2)
-// test.set("sita",3)
-// test.set("thejas",5)
-// test.set("kina",5)
-// test.set("kira",5)
-// test.set("sina",5)
-// test.set("mana",5)
-// test.set("sonu",5)
-// test.set("mena",5)
-// test.set("albin",5)
-// test.set("joan",5)
-// test.set("mani",5)
-// test.set("joan",29)
+test.set("Rama",1)
+test.set("jina",2)
+test.set("sita",3)
+test.set("thejas",5)
+test.set("kina",5)
+test.set("kira",5)
+test.set("sina",5)
+test.set("mana",5)
+test.set("sonu",5)
+test.set("mena",5)
+test.set("albin",5)
+test.set("joan",5)
+test.set("mani",25)
+test.set("joan",29)
+test.set("mani",900)
+test.set("mano",34)
+test.set("mano",34)
 
+let val = test.get("mani")
+console.log(val)
 
-
-// test.display();
+test.length();
 
 // test.set("sita",50)
 // test.set("sonu",50)

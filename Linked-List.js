@@ -8,26 +8,27 @@ export  class LinkedList{
         let node = new listNode(key,value);
         if(!this.head){
             this.head = node;
-            return ;
+            return 0;
         }
         let temp = this.head;
         if(temp.key === key){
             temp.value = value;
-            return ;
+            return 1;
         }
         while(temp.nextNode){
             if(temp.key === key ){
                 temp.value = value;
-                return;
+                return 1;
             }
             temp = temp.nextNode
 
         }
         if(temp.key === key){
             temp.value = value;
-            return 
+            return 1
         }
         temp.nextNode = node;
+        return 0;
     }
     display(){
         if(!this.head){
@@ -55,6 +56,23 @@ export  class LinkedList{
             temp = temp.nextNode;
         }
             temp.nextNode = null;
+    }
+
+    retrive(key){
+        if(!this.head){
+            return null;
+        }
+
+        let temp = this.head;
+
+        while(temp){
+            if(temp.key === key){
+                return temp.value;
+            }
+            temp = temp.nextNode;
+        }
+        return null
+
     }
 }
 // let le = new LinkedList();
