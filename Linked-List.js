@@ -24,8 +24,6 @@ export class LinkedList {
     }
     if (temp.key === key) {
       temp.value = value;
-      console.log("ond");
-
       return 1;
     }
     temp.nextNode = node;

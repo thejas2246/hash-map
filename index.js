@@ -1,6 +1,6 @@
 import { LinkedList } from "./Linked-List.js";
 
-class HashMap {
+export class HashMap {
   constructor() {
     this.loadFactor = 0.75;
     this.capacity = 16;
@@ -108,8 +108,7 @@ increaeSize(){
 remove(key){
   let hashCode = this.hash(key);
   if(this.bucketContainer[hashCode]){
-    let isKeyFound = this.bucketContainer[hashCode].delete(key);
-    console.log(isKeyFound);
+    let isKeyFound = this.bucketContainer[hashCode].delete(key);;
     if(isKeyFound){
       this.currentSize--;
     }
@@ -123,8 +122,4 @@ for(let item of this.bucketContainer){
   }
 }
 }
-
-
 }
-
-
